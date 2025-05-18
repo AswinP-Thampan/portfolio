@@ -27,12 +27,12 @@ export default function Profile() {
                     animate="visible">
                     <div>
                         About
-                        <div className="w-52 h-52 rounded-full mt-3 bg-[#dd3333] border-4 border-white shadow-lg flex items-center justify-center relative overflow-hidden">
+                        <div className="w-52 h-52 rounded-full mt-3 bg-[#dd3333] border-4 border-black/20 shadow-lg flex items-center justify-center relative overflow-hidden">
                             <Image
                                 src="/pfp.png"
                                 alt="Picture of the Author"
                                 fill
-                                className="object-cover scale-120 translate-y-5 translate-x-2"
+                                className="object-cover scale-130 translate-y-8 translate-x-2"
                             />
                         </div>
 
@@ -45,22 +45,33 @@ export default function Profile() {
                     variants={reveal}
                     initial="hidden"
                     animate="visible">
-                    Details
-                    {[1, 2, 3, 4].map((_, i) => (
-                        <motion.div
-                            key={i}
-                            className="bg-[#dddddd33] backdrop-blur-md border-2 rounded-3xl p-10 w-[700px]"
-                            variants={reveal}
-                            initial="hidden"
-                            animate="visible"
-                            transition={{ delay: 0.3 + i * 0.15 }}
-                        >
-                            Details #{i}
-                            <div className="text-base leading-snug font-[family-name:var(--font-geist-mono)]">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur viverra sem vitae ex bibendum, sed gravida nunc placerat. Praesent quis elementum neque. Ut turpis nisl, consectetur elementum nibh a, feugiat tincidunt augue. Etiam pulvinar ac mauris sed iaculis. Praesent scelerisque urna malesuada, varius velit nec, varius lacus. Quisque aliquam est ac velit cursus, vitae suscipit diam suscipit. Ut condimentum tortor sed pellentesque commodo.
+                    Work Experience
+                    <motion.div
+                        className="w-[700px]"
+                        variants={reveal}
+                        initial="hidden"
+                        animate="visible"
+                        transition={{ delay: 1.5 }}
+                    >
+                        <div className="text-base font-medium leading-snug font-[family-name:var(--font-geist-mono)] flex flex-col gap-2">
+                            With 2.3+ years of industry experience. Skilled in collaborating and managing with cross-functional teams I have learned a lot of skills. Lorem Ipsum asdas asd oas  iuopjjp asdipn 0piasd pad -0 o1 e20inlasda sdoansd asd on dals daos dals daos dasod asdoas dllasd asodl asdas d3o10dolka gfof0oelasdo asdla sdoa sdoaos jdsa. Asdas adsadas ffeqsfq asdwvg.
+                            <div>
+                                <div className="text-lg"> <span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">PREV ORG. &nbsp;:</span> Comviva Technologies &emsp;&emsp;&emsp;&emsp;<span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">DURATION&nbsp;&nbsp;&nbsp;:</span> 2 years and 3 months</div>
+                                <div className="text-lg"> </div>
+                                <div className="text-lg"> <span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">PROJECTS&nbsp;&nbsp;:</span> 2 Projects (Prod & Service)</div>
                             </div>
-                        </motion.div>
-                    ))}
+                            <motion.div
+                                className="flex flex-row gap-5 font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non"
+                                variants={reveal}
+                                initial="hidden"
+                                animate="visible"
+                                transition={{ delay: 1 }}>
+                                <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-4xl">Key Skills Learned</div>
+                                <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-4xl">Server Management (P1)</div>
+                                <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-4xl">Payment Platform (P2)</div>
+                            </motion.div>
+                        </div>
+                    </motion.div>
                 </motion.div>
             </div>
         </div>
@@ -68,4 +79,6 @@ export default function Profile() {
     );
 }
 
+
+// bg-[#dddddd33] backdrop-blur-md border-2 rounded-3xl p-10
 

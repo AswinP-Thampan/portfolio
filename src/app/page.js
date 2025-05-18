@@ -86,20 +86,16 @@ export const DockDemo = () => {
         <DockIcon onClick={() => { router.push("/profile") }}>
           <Icons.profile className="size-6" />
         </DockIcon>
-        <Seperator />
-        <DockIcon onClick={() => { window.open("https://github.com/AswinP-Thampan") }}>
-          <Icons.gitHub className="size-6" />
-        </DockIcon>
-        <DockIcon onClick={() => { window.open("https://www.linkedin.com/in/aswinp-thampan/") }}>
+        <DockIcon onClick={() => { router.push("/projects") }}>
           <Icons.linkedin className="size-6" />
         </DockIcon>
-        <DockIcon onClick={() => { router.push("/contact") }}>
+        <Seperator />
+        {/* <DockIcon onClick={() => { window.open("https://github.com/AswinP-Thampan") }}>
+          <Icons.gitHub className="size-6" />
+        </DockIcon>*/}
+        <DockIcon onClick={() => { router.push("/contacts") }}>
           <Icons.mail className="size-6" />
         </DockIcon>
-        {/* <Seperator />
-        <DockIcon onClick={() => { window.open("https://www.linkedin.com/in/aswinp-thampan/") }}>
-          <Icons.linkedin className="size-6" />
-        </DockIcon> */}
       </Dock>
     </div>
   );
@@ -122,10 +118,11 @@ const Icons = {
     </svg>
   ),
   linkedin: (props) => (
-    <svg width="50" height="50" viewBox="0 0 30 30">
+    <svg viewBox="0 0 24 24" width="50"height="50">
       <path
         fill="#333333"
-        d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"></path>
+        d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM9.94 13.27C9.26 14.29 8.32 15.12 7.22 15.67C7.12 15.72 7 15.75 6.89 15.75C6.61 15.75 6.35 15.6 6.22 15.34C6.03 14.97 6.18 14.52 6.56 14.33C7.43 13.9 8.17 13.24 8.7 12.44C8.88 12.17 8.88 11.83 8.7 11.56C8.16 10.76 7.42 10.1 6.56 9.67C6.18 9.49 6.03 9.04 6.22 8.66C6.4 8.29 6.85 8.14 7.22 8.33C8.32 8.88 9.26 9.71 9.94 10.73C10.46 11.5 10.46 12.5 9.94 13.27ZM17 15.75H13C12.59 15.75 12.25 15.41 12.25 15C12.25 14.59 12.59 14.25 13 14.25H17C17.41 14.25 17.75 14.59 17.75 15C17.75 15.41 17.41 15.75 17 15.75Z"
+      />
     </svg>
   ),
   profile: (props) => (
