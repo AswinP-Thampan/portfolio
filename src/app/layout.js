@@ -1,4 +1,4 @@
-import { Jersey_10, Geist_Mono } from "next/font/google";
+import { Jersey_10, Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Particles } from "@/components/magicui/particles";
 import "./globals.css";
@@ -10,7 +10,7 @@ const geistSans = Jersey_10({
   weight: '400',
 });
 
-const geistMono = Geist_Mono({
+const geistMono = Geist({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -23,7 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={geistSans.className}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="fixed inset-0 -z-10 h-screen w-screen bg-white">
           {/* <Particles size={3} quantity={100} color={["#555555","#dd0000"]} className="h-full w-full" /> */}
           <AnimatedGridPattern

@@ -6,11 +6,11 @@ import React, { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const DEFAULT_SIZE = 40;
-const DEFAULT_MAGNIFICATION = 55;
+const DEFAULT_MAGNIFICATION = 60;
 const DEFAULT_DISTANCE = 100;
 
 const dockVariants = cva(
-  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto my-8 flex h-[58px] w-max items-center justify-center gap-2 rounded-2xl border p-2 backdrop-blur-md"
+  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto my-8 flex h-[58px] w-max items-center justify-center gap-2 rounded-2xl border-[1.5px] p-2 backdrop-blur-md"
 );
 
 const Dock = React.forwardRef((
@@ -89,7 +89,7 @@ const DockIcon = ({
   return (
     <motion.div
       ref={ref}
-      style={{ width: scaleSize, height: scaleSize, padding }}
+      style={{ width: scaleSize, height: scaleSize, padding: `${padding}px ${padding-1}px` }}
       className={cn(
         "flex aspect-square cursor-pointer items-center justify-center rounded-full",
         className
