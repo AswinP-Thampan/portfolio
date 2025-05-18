@@ -1,5 +1,6 @@
 "use client"
 
+import ModalGrid from "@/components/custom/ModalGrid";
 import { MotionDock } from "../page";
 import { motion } from "framer-motion";
 
@@ -24,7 +25,7 @@ export default function Projects() {
                 transition={{ delay: 1 }}
                 className="flex flex-row gap-10 p-10 w-full h-full justify-center items-center text-6xl"
             >
-                [WIP] Projects to be Added
+                <ModalGrid />
             </motion.div>
         </div>
     );
