@@ -25,6 +25,7 @@ export default function Contacts() {
 
                     return (
                         <motion.div
+                            key={i}
                             variants={reveal}
                             initial="hidden"
                             animate="visible"
