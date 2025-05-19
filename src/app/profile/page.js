@@ -9,7 +9,7 @@ import { useState } from "react";
 export default function Profile() {
 
     const [skills, setPopSkills] = useState(false)
-    const [project, setProjects] = useState(P1)
+    const [project, setProjects] = useState(null)
 
     const reveal = {
         hidden: { opacity: 0, y: 30 },
@@ -43,7 +43,7 @@ export default function Profile() {
 
                         </div>
                         <div className="text-base font-medium pt-15 leading-snug font-[family-name:var(--font-geist-mono)]">
-                            I’m a Full Stack Web Developer who enjoys building dynamic, responsive web applications from the ground up. I love coding things from scratch, bringing creative ideas to life in the browser, and crafting smooth, interactive user experiences. With a passion for continuous learning and a collaborative mindset, I thrive in environments where I can explore new technologies and take on challenges that help me grow. Let’s build something great together!                    </div>
+                            I’m a Full Stack Web Developer who enjoys building dynamic, responsive web applications from the ground up. I love coding things from scratch, bringing creative ideas to life in the browser, and crafting smooth, interactive user experiences. With a passion for continuous learning and a collaborative mindset, I thrive in environments where I can explore new technologies and take on challenges that help me grow. Let’s build something great together! </div>
                     </motion.div>
                     <motion.div
                         className="flex flex-col gap-5 max-w-[90%] pb-10 overflow-x-hidden "
@@ -59,11 +59,16 @@ export default function Profile() {
                             transition={{ delay: 1.5 }}
                         >
                             <div className="text-base font-medium leading-snug font-[family-name:var(--font-geist-mono)] flex flex-col gap-2">
-                                With 2.3+ years of industry experience. Skilled in collaborating and managing with cross-functional teams I have learned a lot of skills. Lorem Ipsum asdas asd oas  iuopjjp asdipn 0piasd pad -0 o1 e20inlasda sdoansd asd on dals daos dals daos dasod asdoas dllasd asodl asdas d3o10dolka gfof0oelasdo asdla sdoa sdoaos jdsa. Asdas adsadas ffeqsfq asdwvg.
+                                With 2.3+ years of experience as a Full Stack Developer, I specialize in building scalable, high-performance web applications using React, JavaScript, and modern frameworks. I’ve contributed to end-to-end development from architecting frontend experiences to integrating backend services, while collaborating closely with cross-functional teams. My approach blends clean code practices with a strong understanding of user-centric design, enabling me to consistently deliver robust, maintainable solutions aligned with business goals.
                                 <div>
-                                    <div className="text-lg"> <span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">PREV ORG. &nbsp;:</span> Comviva Technologies &emsp;&emsp;&emsp;&emsp;<span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">DURATION&nbsp;&nbsp;&nbsp;:</span> 2 years and 3 months</div>
-                                    <div className="text-lg"> </div>
-                                    <div className="text-lg"> <span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">PROJECTS&nbsp;&nbsp;:</span> 2 Projects (Prod & Service)</div>
+                                    <div className="text-lg flex justify-between">
+                                        <div><span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">PREV ORG. &nbsp;:&nbsp;</span>Comviva Technologies</div>
+                                        <div><span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">ROLE &nbsp;:&nbsp;</span>Product Development Engineer</div>
+                                    </div>
+                                    <div className="text-lg flex justify-between">
+                                        <div><span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">PROJECTS &nbsp;:&nbsp;</span>2 Projects (Prod & Service)</div>
+                                        <div><span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">DURATION &nbsp;:&nbsp;</span>2 years and 3 months</div>
+                                    </div>
                                 </div>
                                 <motion.div
                                     className="flex flex-row gap-5 font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non"
@@ -82,7 +87,7 @@ export default function Profile() {
             </div>
             <div className="z-10">
                 {project !== null &&
-                    <PopUpModal handleSkills={setProjects} project={project}/>
+                    <PopUpModal handleSkills={setProjects} project={project} />
                 }
             </div>
         </>
@@ -92,7 +97,7 @@ export default function Profile() {
 }
 
 
-export const PopUpModal = ({ handleSkills , project }) => {
+export const PopUpModal = ({ handleSkills, project }) => {
 
     return (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
