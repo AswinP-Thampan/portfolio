@@ -9,6 +9,7 @@ import { useState } from "react";
 export default function Profile() {
 
     const [skills, setPopSkills] = useState(false)
+    const [project, setProjects] = useState(P1)
 
     const reveal = {
         hidden: { opacity: 0, y: 30 },
@@ -71,8 +72,8 @@ export default function Profile() {
                                     animate="visible"
                                     transition={{ delay: 1 }}>
                                     <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-4xl" onClick={() => setPopSkills(true)}>Key Skills Learned</div>
-                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-4xl" onClick={() => setPopSkills(true)}>Server Management (P1)</div>
-                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-4xl" onClick={() => setPopSkills(true)}>Payment Platform (P2)</div>
+                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-4xl" onClick={() => setProjects(P1)}>Server Management (P1)</div>
+                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-4xl" onClick={() => setProjects(P2)}>Payment Platform (P2)</div>
                                 </motion.div>
                             </div>
                         </motion.div>
@@ -80,8 +81,8 @@ export default function Profile() {
                 </div>
             </div>
             <div className="z-10">
-                {skills &&
-                    <PopUpModal handleSkills={setPopSkills} />
+                {project !== null &&
+                    <PopUpModal handleSkills={setProjects} project={project}/>
                 }
             </div>
         </>
@@ -91,24 +92,117 @@ export default function Profile() {
 }
 
 
-export const PopUpModal = ({ handleSkills }) => {
+export const PopUpModal = ({ handleSkills , project }) => {
 
-    const dummyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit magna eget erat tempus ultrices. Sed sed mi bibendum, faucibus libero vitae, consectetur arcu. Maecenas auctor, augue non rhoncus sagittis, ex mauris posuere ante, ut feugiat elit elit in justo. Duis suscipit vestibulum orci. Vivamus semper eu felis et molestie. Phasellus ornare libero vitae neque convallis, sed pharetra metus feugiat. Integer interdum massa et mi maximus molestie. Quisque consectetur vel sapien a semper. In condimentum mi lobortis diam vestibulum, sed elementum nibh eleifend. Maecenas quis eros vestibulum, finibus nulla ut, hendrerit nunc. Vestibulum iaculis erat venenatis dolor facilisis, sit amet sodales libero ullamcorper. Quisque risus enim, dictum in lectus sit amet, egestas finibus sapien. Sed malesuada ipsum metus. Aliquam at ultricies odio, dapibus ultrices dolor. Phasellus auctor eleifend ipsum, vitae luctus libero. In nec interdum nulla. Sed et magna quis ligula interdum varius ac a justo. Fusce aliquet, tellus eget efficitur dapibus, massa ex vestibulum ante, et luctus arcu felis nec enim. Ut rutrum mi et magna mollis, vel sollicitudin ipsum facilisis. Nam dictum elit eros, sed sagittis massa sollicitudin id. Aenean malesuada, lorem et tincidunt tempus, tortor felis maximus tellus, sed ultrices nisl ante quis mi. Donec at augue eget massa condimentum imperdiet at sed leo. Curabitur mollis est nec magna iaculis, eget eleifend arcu suscipit. Vestibulum et semper magna, et vehicula ex. Aenean gravida leo in faucibus tincidunt. Donec auctor, leo sed lobortis lacinia, libero eros aliquet dui, vitae facilisis nisl mi vel arcu. Nunc nec tempor nisl. Sed pharetra faucibus maximus. Sed velit nibh, lobortis id ultrices pretium, feugiat at ipsum. Donec malesuada est at enim rhoncus venenatis. Vivamus sagittis accumsan diam. In sed convallis massa, et faucibus mi. Duis volutpat vulputate consectetur. Donec commodo turpis velit, sed venenatis magna pulvinar sit amet. Duis tempor risus vitae ultricies facilisis. Praesent non est ac sapien rutrum tincidunt at vel urna. Duis eget ligula sodales, interdum urna ut, pellentesque sapien. Quisque condimentum metus risus, ac venenatis risus tempor ut. Nullam dignissim erat eu mi tempus vulputate."
     return (
-        <div onClick={() => handleSkills(false)} className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-            <div className="relative bg-white p-10 rounded-lg shadow-lg max-w-4xl w-full text-black">
-                <div
-                    className="absolute top-4 right-4 cursor-pointer flex justify-center items-center font-[family-name:var(--font-geist-sans)] text-2xl rounded-lg w-8 h-8"
-                    onClick={() => handleSkills(false)}
-                >
-                    X
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+            <div className="flex bg-white rounded-lg shadow-lg max-w-2/3 max-h-2/3 w-full text-black overflow-hidden h-[500px]">
+                {/* Left Side - Image */}
+                <div className="relative w-1/3 h-full overflow-hidden">
+                    <Image
+                        src={project.src}
+                        alt="Side profile of a cat"
+                        fill
+                        className={project.classstyle}
+                    />
+                    <div className="absolute bottom-0 m-8 p-2 pb-2.5 rounded-xl text-xs font-medium text-center text-white bg-black/30 backdrop-blur-lg">These are representative stock images intended to give viewers a quick visual idea of the project.</div>
                 </div>
-                {dummyText}
+
+                {/* Right Side - Content */}
+                <div className="relative w-2/3 p-6 flex flex-col justify-start">
+                    <button
+                        className="absolute top-2 right-2 cursor-pointer flex justify-center items-center font-[family-name:var(--font-geist-sans)] text-2xl rounded-lg w-8 h-8"
+                        onClick={() => handleSkills(null)}
+                    >
+                        X
+                    </button>
+                    <div className='flex flex-row justify-between items-center'>
+                        <div>
+                            <div className="font-[family-name:var(--font-geist-mono)] text-xs mr-4 uppercase">{project.company}</div>
+                            <div className="font-[family-name:var(--font-geist-sans)] text-2xl ">{project.name}</div>
+                            <div className="font-[family-name:var(--font-geist-mono)] text-xs uppercase">{project.duration}</div>
+                        </div>
+                        <div>
+                            <div className="font-[family-name:var(--font-geist-mono)] text-xs mr-4 uppercase">{project.location}</div>
+                        </div>
+                    </div>
+                    <div className="mt-5 overflow-y-auto flex flex-col gap-5">
+
+                        <div className='flex flex-row gap-2 flex-wrap'>
+                            {project.stack.map((val, i) => {
+                                return (<div key={i} className="bg-[#dd4040] cursor-pointer text-white rounded-3xl px-2 py-1 font-[family-name:var(--font-geist-mono)] text-xs">{val}</div>)
+                            })}
+                        </div>
+
+                        <ul className="flex flex-col gap-2 list-disc list-inside">
+                            {project.content.map((val, i) => {
+                                return (<li key={i} className="text-sm ">{val}</li>)
+                            })}
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
             </div>
+
         </div>
 
     )
 }
+
+export const P2 = {
+    name: "Payment Portal for Merchant ",
+    company: "Comviva Technologies Ltd. ",
+    location: "Bangalore, IN",
+    src: "/ppsample.webp",
+    classstyle: 'object-cover scale-130',
+    duration: "APRIL 2023 - SEPTEMBER 2024",
+    content: [
+        "Developed a scalable, responsive digital payment platform for mobiles, tablets, and browsers, enabling seam-less different transactions, bill payments, and mobile recharges, with optimized cross-platform performance.",
+        "Acted as the SPOC & liaison between Ericsson’s backend team, Comviva’s development teams, & the client MTN.",
+        "Designed and implemented reusable components in React.js using Figma wireframes, visualized workflows in Storybook, and ensured accurate token assignments to enhance scalability by 30%.",
+        "Utilized Redux Toolkit for state management, eliminating prop drilling, and improving application performance.",
+        "Diagnosed and resolved UI/UX inconsistencies, reducing critical design errors by 50%. Implemented sustainable token solutions and corrected style nesting in Figma to ensure consistency across the platform.",
+        "Enhanced portal security by implementing route guards and blocking multiple sessions. Secured user authentication mechanisms in the platform's first release to ensure safe and reliable access.",
+        "Optimized web performance by improving JavaScript, CSS, and React.js workflows, improving load times by 20%.",
+        "Collaborated with backend teams to debug API issues & ensure smooth integration, reducing API resp. errors.",
+        "Created and deployed custom hooks in React, simplifying state and lifecycle management. This approach increased code reusability and ensured greater consistency across components.",
+        "Implemented responsive design principles to create seamless experiences across devices. Leveraged media queries and flexible grid layouts to optimize functionality for mobile and tablet users.",
+        "Designed interactive UI flows for different regions, incorporating dynamic datasets, localized routes, and region-specific content, with languages managed through a CMS. This was catered to diverse user needs.",
+        "Streamlined debugging processes with ESLint and Prettier, ensuring high-quality code and reducing review time.",
+        "Proactively resolved cross-browser compatibility issues, ensuring consistent performance across browsers.",
+        "Developed modular and testable code structures and conducted unit and integration testing using Jest and React Testing Library, ensuring reliable, bug-free components while reducing debugging time by 15%.",
+        "Automated deployment pipelines using Git and CI/CD tools, facilitating faster and more reliable releases.",
+        "Utilized Selenium with Python for testing, ensuring smooth page navigation & functionality of dynamic elements.",
+        "Completed deliverables for each task comprising different flows on time, passing them on for Minimum Viable Product (MVP) Testing and User Acceptance Testing (UAT).",
+        "Managed a team of 35+ members, headed scrum calls, fostering collaboration & achieving project objectives.",
+        "Honored with two ACE (Appreciation for Commitment and Effort) awards for consistently meeting key project milestones with dedication and reliability.",
+    ],
+    stack: ["React.js", "React Native", "JavaScript", "TypeScript", "Redux", "Tailwind", "Storybook", "Node.js", "Python Selenium", "Express", "MySQL", "Firebase", "Git"]
+}
+
+export const P1 = {
+    name: "Server Management Portal",
+    company: "Comviva Technologies Ltd. ",
+    location: "Gurgaon, IN",
+    src: "/smsample.png",
+    classstyle: 'object-cover',
+    duration: "JUNE 2022 - APRIL 2024",
+    content: [
+        "Designed and developed a server management portal to streamline operations and identify performance bottlenecks, providing real-time visualization of server telemetry and health metrics.",
+        "Redux Toolkit was implemented to facilitate dynamic modifications and optimize server performance.",
+        "Designed and implemented filtration-based web pages, allowing users to sort and filter server stats and configurations effortlessly. This streamlined access improved resource monitoring and operational efficiency.",
+        "Reverse-engineered components and wireframes from an Ext JS-based Server Management Portal, improving functionality and usability. Migrated the platform to ReactJS for a modernized user experience.",
+        "Constructed reusable and modular server configurations in React.js, enabling streamlined development and reducing redundancy. This enhanced development speed & boosted reusability by 30% from the previous version.",
+        "Used Python for automation testing, validating UI elements like forms, buttons, and dynamic components.",
+        "Created Springboot microservices to seamlessly integrate FE - BE operations, for a smooth & scalable architecture.",
+        "Optimized UI design and workflows using Bootstrap and Redux, enhancing user experience and simplifying the management of server states and configurations. These improvements boosted efficiency for end-users."
+    ],
+    stack: ["React.js", "JavaScript", "Bootstrap", "Redux", "HTML", "Springboot", "Java", "MySQL", "Python", "Git"]
+}
+
 
 
 // bg-[#dddddd33] backdrop-blur-md border-2 rounded-3xl p-10
