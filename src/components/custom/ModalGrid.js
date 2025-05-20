@@ -1,25 +1,41 @@
 import React from 'react'
+import { motion } from "framer-motion";
 
 export default function ModalGrid() {
 
     const dummyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit magna eget erat tempus ultrices. Sed sed mi bibendum, faucibus libero vitae, consectetur arcu. Maecenas auctor, augue non rhoncus sagittis, ex mauris posuere ante, ut feugiat elit elit in justo. "
     const projects = [eaF1Prj, waldoPrj, FreelancePrj, FreelancePrj2, airportPrj, tutorPrj]
 
+
+    const reveal = (i) => ({
+        hidden: { y: 100, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: { duration: 0.6, ease: "easeOut", delay: (i + 1) * 0.2 },
+        },
+    });
+
     return (
-        <div className="h-screen w-screen pt-20 flex flex-col justify-center items-center gap-10 font-[family-name:var(--font-geist-sans)] overflow-x-hidden">
+        <div className="h-screen w-screen flex flex-col justify-center items-center gap-10 font-[family-name:var(--font-geist-sans)] overflow-hidden">
             <div className='flex justify-center items-center'>
                 Personal Projects
             </div>
-            <div className="columns-3 gap-5 max-w-10/12 mx-auto">
+            <div className="columns-3 gap-5 max-w-10/12 mx-auto overflow-hidden">
                 {projects.map((prj, i) => (
-                    <div key={i} className="break-inside-avoid mb-5">
+                    <motion.div
+                        variants={reveal(i)}
+                        initial="hidden"
+                        animate="visible"
+                        key={i}
+                        className="break-inside-avoid mb-5 overflow-hidden">
                         <Modal
                             title={prj.name}
                             date={prj.date}
                             content={prj.content}
                             stack={prj.stack}
                         />
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </div>

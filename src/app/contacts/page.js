@@ -18,13 +18,22 @@ export default function Contacts() {
         },
     });
 
+    const textreveal = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" },
+        },
+    };
+
     return (
         <div className="h-screen w-screen flex flex-col font-[family-name:var(--font-geist-sans)] overflow-x-hidden">
             <div className="z-10">
                 <MotionDock isTop={false} />
             </div>
             <div className="flex flex-col w-full h-full justify-center items-center text-6xl">
-                Feel free to reach out at any of these socials...
+            <motion.div variants={textreveal} initial="hidden" animate="visible">Feel free to reach out at any of these socials...</motion.div>
             <div className="flex flex-row gap-20 p-10">
                 {btns.map((btn, i) => (
                     <motion.div
@@ -32,8 +41,6 @@ export default function Contacts() {
                         variants={reveal(i)}
                         initial="hidden"
                         animate="visible"
-
-                        
                     >
                         <div
                          onClick={() => window.open(btnsName[i])}
