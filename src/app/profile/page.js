@@ -24,15 +24,15 @@ export default function Profile() {
         <>
             <div className="h-screen w-screen flex flex-col font-[family-name:var(--font-geist-sans)] overflow-x-hidden">
                 <div className="z-10"><MotionDock isTop={false} /></div>
-                <div className="flex flex-col items-center justify-center gap-10 text-3xl h-full"> {/*  after 810 we have to use media query */}
+                <div className="flex flex-col items-center justify-start mt-28 md:mt-0 md:justify-center gap-5 md:gap-10 text-3xl h-full"> {/*  after 810 we have to use media query */}
                     <motion.div
-                        className="flex flex-row gap-5 rounded-3xl max-w-[90%] w-[700px]  "
+                        className="flex flex-col md:flex-row gap-5 rounded-3xl max-w-[90%] w-[700px]  "
                         variants={reveal}
                         initial="hidden"
                         animate="visible">
-                        <div>
+                        <div className="flex flex-col justify-center items-center md:items-start">
                             About
-                            <div className="w-52 h-52 rounded-full mt-3 bg-[#dd3333] border-4 border-black/20 shadow-lg flex items-center justify-center relative overflow-hidden">
+                            <div className="w-72 h-72 md:w-52 md:h-52 rounded-full mt-3 bg-[#dd3333] border-4 border-black/20 shadow-lg flex items-center justify-center relative overflow-hidden">
                                 <Image
                                     src="/pfp.png"
                                     alt="Picture of the Author"
@@ -42,17 +42,17 @@ export default function Profile() {
                             </div>
 
                         </div>
-                        <div className="text-base font-medium pt-15 leading-snug font-[family-name:var(--font-geist-mono)]">
+                        <div className="text-base font-medium pt-2 md:pt-15 leading-snug font-[family-name:var(--font-geist-mono)]">
                             I’m a Full Stack Web Developer who enjoys building dynamic, responsive web applications from the ground up. I love coding things from scratch, bringing creative ideas to life in the browser, and crafting smooth, interactive user experiences. With a passion for continuous learning and a collaborative mindset, I thrive in environments where I can explore new technologies and take on challenges that help me grow. Let’s build something great together! </div>
                     </motion.div>
                     <motion.div
-                        className="flex flex-col gap-5 max-w-[90%] pb-10 overflow-hidden "
+                        className="flex flex-col gap-5 pb-15 md:pb-10 items-center md:items-start max-w-[90%] w-[700px]"
                         variants={reveal}
                         initial="hidden"
                         animate="visible">
                         Work Experience
                         <motion.div
-                            className="w-[700px]"
+                            className=""
                             variants={reveal}
                             initial="hidden"
                             animate="visible"
@@ -61,24 +61,24 @@ export default function Profile() {
                             <div className="text-base font-medium leading-snug font-[family-name:var(--font-geist-mono)] flex flex-col gap-2">
                                 With 2.3+ years of experience as a Full Stack Developer, I specialize in building scalable, high-performance web applications using React, JavaScript, and modern frameworks. I’ve contributed to end-to-end development from architecting frontend experiences to integrating backend services, while collaborating closely with cross-functional teams. My approach blends clean code practices with a strong understanding of user-centric design, enabling me to consistently deliver robust, maintainable solutions aligned with business goals.
                                 <div>
-                                    <div className="text-lg flex justify-between">
+                                    <div className="text-base md:text-lg flex flex-col md:flex-row justify-between">
                                         <div><span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">PREV ORG. &nbsp;:&nbsp;</span>Comviva Technologies</div>
                                         <div><span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">ROLE &nbsp;:&nbsp;</span>Product Development Engineer</div>
                                     </div>
-                                    <div className="text-lg flex justify-between">
+                                    <div className="text-base md:text-lg flex flex-col md:flex-row  justify-between">
                                         <div><span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">PROJECTS &nbsp;:&nbsp;</span>2 Projects (Prod & Service)</div>
                                         <div><span className="font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non">DURATION &nbsp;:&nbsp;</span>2 years and 3 months</div>
                                     </div>
                                 </div>
                                 <motion.div
-                                    className="flex flex-row gap-5 font-[family-name:var(--font-geist-sans)] text-2xl tracking-wide leading-non"
+                                    className="flex flex-row flex-wrap gap-3 md:gap-5 font-[family-name:var(--font-geist-sans)] text-lg md:text-2xl tracking-wide leading-non justify-center"
                                     variants={reveal}
                                     initial="hidden"
                                     animate="visible"
                                     transition={{ delay: 1 }}>
-                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-4xl" onClick={() => setPopSkills(true)}>Key Skills Learned</div>
-                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-4xl" onClick={() => setProjects(P1)}>Server Management (P1)</div>
-                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-4xl" onClick={() => setProjects(P2)}>Payment Platform (P2)</div>
+                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-xl md:rounded-4xl w-fit" onClick={() => setPopSkills(true)}>Key Skills Learned</div>
+                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-xl md:rounded-4xl w-fit" onClick={() => setProjects(P1)}>Server Management (P1)</div>
+                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-xl md:rounded-4xl w-fit" onClick={() => setProjects(P2)}>Payment Platform (P2)</div>
                                 </motion.div>
                             </div>
                         </motion.div>

@@ -17,18 +17,18 @@ export default function ModalGrid() {
     });
 
     return (
-        <div className="h-screen w-screen flex flex-col justify-center items-center gap-10 font-[family-name:var(--font-geist-sans)] overflow-hidden">
+        <div className="h-screen w-screen flex flex-col justify-start md:justify-center items-center gap-10 font-[family-name:var(--font-geist-sans)] ">
             <div className='flex justify-center items-center'>
                 Personal Projects
             </div>
-            <div className="columns-3 gap-5 max-w-10/12 mx-auto overflow-hidden">
+            <div className="columns-1 sm:columns-2 md:columns-3 gap-5 max-w-10/12 mx-auto">
                 {projects.map((prj, i) => (
                     <motion.div
                         variants={reveal(i)}
                         initial="hidden"
                         animate="visible"
                         key={i}
-                        className="break-inside-avoid mb-5 overflow-hidden">
+                        className="break-inside-avoid mb-5">
                         <Modal
                             title={prj.name}
                             date={prj.date}
