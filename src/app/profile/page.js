@@ -9,7 +9,7 @@ import { useState } from "react";
 export default function Profile() {
 
     const [skills, setPopSkills] = useState(false)
-    const [project, setProjects] = useState(null)
+    const [project, setProjects] = useState(P1)
 
     const reveal = {
         hidden: { opacity: 0, y: 30 },
@@ -102,7 +102,7 @@ export const PopUpModal = ({ handleSkills, project }) => {
     return (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
             <div className="flex bg-white rounded-lg shadow-lg max-w-2/3 max-h-2/3 w-full text-black overflow-hidden h-[500px]">
-                <div className="relative w-1/3 h-full overflow-hidden">
+                <div className="relative w-1/3 h-full overflow-hidden hidden lg:block">
                     <Image
                         src={project.src}
                         alt="Side profile of a cat"
@@ -111,20 +111,20 @@ export const PopUpModal = ({ handleSkills, project }) => {
                     />
                     <div className="absolute bottom-0 m-8 p-2 pb-2.5 rounded-xl text-xs font-medium text-center text-white bg-black/30 backdrop-blur-lg">These are representative stock images intended to give viewers a quick visual idea of the project.</div>
                 </div>
-                <div className="relative w-2/3 p-6 flex flex-col justify-start">
+                <div className="relative lg:w-2/3 p-6 flex flex-col justify-start">
                     <button
                         className="absolute top-2 right-2 cursor-pointer flex justify-center items-center font-[family-name:var(--font-geist-sans)] text-2xl rounded-lg w-8 h-8"
                         onClick={() => handleSkills(null)}
                     >
                         X
                     </button>
-                    <div className='flex flex-row justify-between items-center '>
+                    <div className='flex flex-col md:flex-row justify-between md:items-center '>
                         <div>
                             <div className="font-[family-name:var(--font-geist-mono)] text-xs mr-4 uppercase">{project.company}</div>
-                            <div className="font-[family-name:var(--font-geist-sans)] text-2xl ">{project.name}</div>
+                            <div className="font-[family-name:var(--font-geist-sans)] text-2xl leading-none">{project.name}</div>
                             <div className="font-[family-name:var(--font-geist-mono)] text-xs uppercase">{project.duration}</div>
                         </div>
-                        <div>
+                        <div className="">
                             <div className="font-[family-name:var(--font-geist-mono)] text-xs mr-4 uppercase">{project.location}</div>
                         </div>
                     </div>

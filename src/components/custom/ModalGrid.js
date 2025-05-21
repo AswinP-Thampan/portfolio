@@ -48,15 +48,6 @@ export const Modal = (props) => {
         <div key={props.key} className='p-5 cursor-pointer bg-gray-400/20 backdrop-blur-[2px] min-w-[300px] w-auto max-w-[420px] h-auto rounded-4xl flex flex-col justify-center items-start text-3xl md:text-4xl'>
             <div>{props.title}</div>
             <div className='font-[family-name:var(--font-geist-mono)] text-sm font-light'>{props.date}</div>
-            {/* {Array.isArray(props.content) && (
-                <ul className='flex flex-col gap-2 list-disc list-inside my-2'>
-                    {props.content.map((val, i) => (
-                        <li key={i} className="font-[family-name:var(--font-geist-mono)] text-sm font-medium">
-                            {val}
-                        </li>
-                    ))}
-                </ul>
-            )} */}
             {!Array.isArray(props.content) &&
                 <div className='font-[family-name:var(--font-geist-mono)] text-sm font-medium my-2'>{props.content}</div>
             }
