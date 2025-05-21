@@ -9,7 +9,7 @@ import { useState } from "react";
 export default function Profile() {
 
     const [skills, setPopSkills] = useState(false)
-    const [project, setProjects] = useState(P1)
+    const [project, setProjects] = useState(null)
 
     const reveal = {
         hidden: { opacity: 0, y: 30 },
