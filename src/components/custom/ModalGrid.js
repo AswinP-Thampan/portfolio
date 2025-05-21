@@ -3,9 +3,7 @@ import { motion } from "framer-motion";
 
 export default function ModalGrid() {
 
-    const dummyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit magna eget erat tempus ultrices. Sed sed mi bibendum, faucibus libero vitae, consectetur arcu. Maecenas auctor, augue non rhoncus sagittis, ex mauris posuere ante, ut feugiat elit elit in justo. "
     const projects = [eaF1Prj, waldoPrj, FreelancePrj, FreelancePrj2, airportPrj, tutorPrj]
-
 
     const reveal = (i) => ({
         hidden: { y: 100, opacity: 0 },
@@ -18,10 +16,10 @@ export default function ModalGrid() {
 
     return (
         <div className="h-screen w-screen flex flex-col justify-start md:justify-center items-center gap-10 font-[family-name:var(--font-geist-sans)] ">
-            <div className='flex justify-center items-center'>
+            <div className='flex mt-30 lg:mt-0 justify-center items-center text-5xl lg:text-6xl'>
                 Personal Projects
             </div>
-            <div className="columns-1 sm:columns-2 md:columns-3 gap-5 max-w-10/12 mx-auto">
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-5">
                 {projects.map((prj, i) => (
                     <motion.div
                         variants={reveal(i)}
@@ -47,7 +45,7 @@ export const Modal = (props) => {
     console.log(typeof (props.content) == Object ? true : false)
 
     return (
-        <div key={props.key} className='p-5 cursor-pointer bg-gray-400/20 backdrop-blur-[2px] min-w-[300px] w-auto max-w-[420px] h-auto rounded-4xl flex flex-col justify-center items-start text-4xl'>
+        <div key={props.key} className='p-5 cursor-pointer bg-gray-400/20 backdrop-blur-[2px] min-w-[300px] w-auto max-w-[420px] h-auto rounded-4xl flex flex-col justify-center items-start text-3xl md:text-4xl'>
             <div>{props.title}</div>
             <div className='font-[family-name:var(--font-geist-mono)] text-sm font-light'>{props.date}</div>
             {/* {Array.isArray(props.content) && (
