@@ -44,7 +44,7 @@ export default function Contacts() {
                     >
                         <div
                          onClick={() => window.open(btnsName[i])}
-                         className="relative w-40 h-40 lg:w-80 lg:h-80 border-2 box-border border-black/50 rounded-4xl flex justify-center items-center overflow-hidden cursor-pointer opacity-50 hover:opacity-80 hover:scale-120 hover:transition-discrete">
+                         className="relative w-40 h-40 lg:w-80 lg:h-80 border-2 box-border border-black/50 rounded-4xl flex justify-center items-center overflow-hidden cursor-pointer opacity-90 md:opacity-50 hover:opacity-80 hover:scale-120 hover:transition-discrete">
                         <Image
                             src={btn}
                             alt={`button-${i}`}
