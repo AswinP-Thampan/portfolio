@@ -32,9 +32,9 @@ export default function Contacts() {
             <div className="z-10">
                 <MotionDock isTop={false} />
             </div>
-            <div className="flex flex-col w-full h-full justify-start md:justify-center p-20 mt-10 md:mt-0 items-center text-3xl lg:text-6xl">
+            <div className="flex flex-col w-full h-full justify-start md:justify-center p-10 md:p-20 mt-20 md:mt-0 items-center text-3xl lg:text-6xl gap-10">
             <motion.div variants={textreveal} initial="hidden" animate="visible">Feel free to reach out at any of these socials...</motion.div>
-            <div className="flex flex-row flex-wrap gap-20 p-10">
+            <div className="flex flex-row flex-wrap gap-5 lg:gap-20 p-0 md:p-10 justify-center">
                 {btns.map((btn, i) => (
                     <motion.div
                         key={i}
@@ -44,7 +44,7 @@ export default function Contacts() {
                     >
                         <div
                          onClick={() => window.open(btnsName[i])}
-                         className="relative w-50 h-50 lg:w-80 lg:h-80 border-2 box-border border-black/50 rounded-4xl flex justify-center items-center overflow-hidden cursor-pointer opacity-50 hover:opacity-80 hover:scale-120 hover:transition-discrete">
+                         className="relative w-40 h-40 lg:w-80 lg:h-80 border-2 box-border border-black/50 rounded-4xl flex justify-center items-center overflow-hidden cursor-pointer opacity-50 hover:opacity-80 hover:scale-120 hover:transition-discrete">
                         <Image
                             src={btn}
                             alt={`button-${i}`}
