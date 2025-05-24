@@ -157,7 +157,7 @@ export const P2 = {
     name: "Payment Portal for Merchant ",
     company: "Comviva Technologies Ltd. ",
     location: "Bangalore, IN",
-    src: "/ppsample.webp",
+    src: "/ppsample.png",
     classstyle: 'object-cover scale-130',
     duration: "APRIL 2023 - SEPTEMBER 2024",
     content: [
