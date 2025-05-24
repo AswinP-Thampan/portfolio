@@ -71,14 +71,13 @@ export default function Profile() {
                                     </div>
                                 </div>
                                 <motion.div
-                                    className="flex flex-row flex-wrap gap-3 md:gap-5 font-[family-name:var(--font-geist-sans)] text-lg md:text-2xl tracking-wide leading-non justify-center"
+                                    className="flex flex-row flex-wrap gap-3 md:gap-5 font-[family-name:var(--font-geist-sans)] text-lg md:text-2xl tracking-wide leading-non justify-center md:justify-between"
                                     variants={reveal}
                                     initial="hidden"
                                     animate="visible"
                                     transition={{ delay: 1 }}>
-                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-xl md:rounded-4xl w-fit" onClick={() => setPopSkills(true)}>Key Skills Learned</div>
-                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-xl md:rounded-4xl w-fit" onClick={() => setProjects(P1)}>Server Management (P1)</div>
-                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-xl md:rounded-4xl w-fit" onClick={() => setProjects(P2)}>Payment Platform (P2)</div>
+                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-xl md:rounded-4xl w-fit" onClick={() => setProjects(P1)}>Server Management (Project #1)</div>
+                                    <div className="px-3 cursor-pointer py-1 text-white bg-[#dd4040] rounded-xl md:rounded-4xl w-fit" onClick={() => setProjects(P2)}>Payment Platform (Project #2)</div>
                                 </motion.div>
                             </div>
                         </motion.div>
@@ -101,15 +100,15 @@ export const PopUpModal = ({ handleSkills, project }) => {
 
     return (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-            <div className="flex bg-white rounded-lg shadow-lg max-w-2/3 max-h-2/3 w-full text-black overflow-hidden h-[500px]">
-                <div className="relative w-1/3 h-full overflow-hidden hidden lg:block">
+            <div className="flex bg-white rounded-lg shadow-lg max-w-3/4 max-h-[80%] lg:max-h-3/4 w-full text-black overflow-hidden h-auto lg:h-[500px]">
+                <div className="relative w-1/3 h-full overflow-hidden hidden lg:block border-r-2 border-black/50">
                     <Image
                         src={project.src}
                         alt="Side profile of a cat"
                         fill
                         className={project.classstyle}
                     />
-                    <div className="absolute bottom-0 m-8 p-2 pb-2.5 rounded-xl text-xs font-medium text-center text-white bg-black/30 backdrop-blur-lg">These are representative stock images intended to give viewers a quick visual idea of the project.</div>
+                    <div className="absolute bottom-0 my-5 mx-9 p-2 pb-2.5 rounded-xl text-xs font-medium text-center text-white bg-black/30 backdrop-blur-lg">I have used stock image to help visualize the project.</div>
                 </div>
                 <div className="relative lg:w-2/3 p-6 flex flex-col justify-start">
                     <button
@@ -153,6 +152,7 @@ export const PopUpModal = ({ handleSkills, project }) => {
 
     )
 }
+
 
 export const P2 = {
     name: "Payment Portal for Merchant ",
