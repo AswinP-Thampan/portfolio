@@ -40,11 +40,11 @@ export default function Home() {
     <div className="h-screen w-screen flex justify-center items-center font-[family-name:var(--font-geist-sans)]">
       <div className="flex flex-col items-center">
         <MotionDock isTop={true} />
-        <span className="inline-block text-[100px] mt-3 md:mt-0 md:text-[200px] text-black leading-none">
+        <span className="cursor-default inline-block text-[100px] mt-3 md:mt-0 md:text-[200px] text-black leading-none">
           ASWIN P<span className="text-red-500">.</span>
         </span>
         <span>
-          <TypingAnimation className="inline-block text-[30px] md:text-[50px] tracking-wide text-black leading-none">{newName}</TypingAnimation>
+          <TypingAnimation className="cursor-default inline-block text-[30px] md:text-[50px] tracking-wide text-black leading-none">{newName}</TypingAnimation>
         </span>
       </div>
     </div>

@@ -23,29 +23,28 @@ export default function Profile() {
         <>
             <div className="h-screen w-screen flex flex-col font-[family-name:var(--font-geist-sans)] overflow-x-hidden">
                 <div className="z-10"><MotionDock isTop={false} /></div>
-                <div className="flex flex-col items-center justify-start mt-28 md:mt-0 md:justify-center gap-5 md:gap-10 text-3xl h-full"> {/*  after 810 we have to use media query */}
+                <div className="flex flex-col items-center justify-start mt-28 md:mt-0 md:justify-center gap-5 md:gap-10 text-3xl h-full"> 
                     <motion.div
                         className="flex flex-col md:flex-row gap-5 rounded-3xl max-w-[90%] w-[700px]  "
                         variants={reveal}
                         initial="hidden"
                         animate="visible">
-                        <div className="flex flex-col justify-center items-center md:items-start">
+                        <div className="cursor-default flex flex-col justify-center items-center md:items-start">
                             About
-                            <div className="w-72 h-72 md:w-52 md:h-52 rounded-full mt-3 bg-[#dd3333] border-4 border-black/20 shadow-lg flex items-center justify-center relative overflow-hidden">
+                            <div className="w-72 h-72 md:w-52 md:h-52 rounded-full mt-3 bg-[#F52943] border-4 border-black/20 shadow-lg flex items-center justify-center relative overflow-hidden">
                                 <Image
                                     src="/pfp.png"
                                     alt="Picture of the Author"
                                     fill
-                                    className="object-cover scale-130 translate-y-8 translate-x-2"
+                                    className="object-cover scale-130 translate-y-8 translate-x-2 border-none"
                                 />
                             </div>
-
                         </div>
                         <div className="text-base font-medium pt-2 md:pt-15 leading-snug font-[family-name:var(--font-geist-mono)]">
                             I’m a Full Stack Web Developer who enjoys building dynamic, responsive web applications from the ground up. I love coding things from scratch, bringing creative ideas to life in the browser, and crafting smooth, interactive user experiences. With a passion for continuous learning and a collaborative mindset, I thrive in environments where I can explore new technologies and take on challenges that help me grow. Let’s build something great together! </div>
                     </motion.div>
                     <motion.div
-                        className="flex flex-col gap-5 pb-15 md:pb-10 items-center md:items-start max-w-[90%] w-[700px]"
+                        className="cursor-default  flex flex-col gap-5 pb-15 md:pb-10 items-center md:items-start max-w-[90%] w-[700px]"
                         variants={reveal}
                         initial="hidden"
                         animate="visible">
@@ -97,9 +96,19 @@ export default function Profile() {
 
 export const PopUpModal = ({ handleSkills, project }) => {
 
+    const stopPropagation = (e) => {
+        e.stopPropagation();
+    };
+
     return (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-            <div className="flex bg-white rounded-lg shadow-lg max-w-3/4 max-h-[80%] lg:max-h-3/4 w-full text-black overflow-hidden h-auto lg:h-[500px]">
+        <div
+            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center"
+            onClick={() => handleSkills(null)}
+        >
+            <div
+                className="flex bg-white rounded-lg shadow-lg max-w-3/4 max-h-[80%] lg:max-h-3/4 w-full text-black overflow-hidden h-auto lg:h-[500px]"
+                onClick={stopPropagation}
+            >
                 <div className="relative w-1/3 h-full overflow-hidden hidden lg:block border-r-2 border-black/50">
                     <Image
                         src={project.src}
@@ -107,7 +116,9 @@ export const PopUpModal = ({ handleSkills, project }) => {
                         fill
                         className={project.classstyle}
                     />
-                    <div className="absolute bottom-0 my-5 mx-9 p-2 pb-2.5 rounded-xl text-xs font-medium text-center text-white bg-black/30 backdrop-blur-lg">I have used stock image to help visualize the project.</div>
+                    <div className="absolute bottom-0 py-5 px-9 w-full flex justify-center items-center">
+                        <div className=" p-2 pb-2.5 rounded-xl text-xs font-medium text-center text-white w-fit bg-black/50 backdrop-blur-lg">I have used stock image to help visualize the project.</div>
+                    </div>
                 </div>
                 <div className="relative lg:w-2/3 p-6 flex flex-col justify-start">
                     <button
@@ -127,28 +138,20 @@ export const PopUpModal = ({ handleSkills, project }) => {
                         </div>
                     </div>
                     <div className="mt-5 overflow-y-auto flex flex-col gap-5">
-
                         <div className='flex flex-row gap-2 flex-wrap'>
                             {project.stack.map((val, i) => {
                                 return (<div key={i} className="bg-[#dd4040] cursor-pointer text-white rounded-3xl px-2 py-1 font-[family-name:var(--font-geist-mono)] text-xs">{val}</div>)
                             })}
                         </div>
-
                         <ul className="flex flex-col gap-2 list-disc list-inside">
                             {project.content.map((val, i) => {
                                 return (<li key={i} className="text-sm ">{val}</li>)
                             })}
-
                         </ul>
-
                     </div>
-
-
                 </div>
             </div>
-
         </div>
-
     )
 }
 
