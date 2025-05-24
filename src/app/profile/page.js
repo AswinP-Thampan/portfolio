@@ -8,7 +8,6 @@ import { useState } from "react";
 
 export default function Profile() {
 
-    const [skills, setPopSkills] = useState(false)
     const [project, setProjects] = useState(null)
 
     const reveal = {
@@ -205,7 +204,4 @@ export const P1 = {
     stack: ["React.js", "JavaScript", "Bootstrap", "Redux", "HTML", "Springboot", "Java", "MySQL", "Python", "Git"]
 }
 
-
-
-// bg-[#dddddd33] backdrop-blur-md border-2 rounded-3xl p-10
 
